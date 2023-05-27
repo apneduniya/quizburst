@@ -1,0 +1,77 @@
+
+.home-container::before {
+    content: ' ';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #f8f8f8;
+    background: url(https://www.django-rest-framework.org/img/grid.png) repeat-x;
+    will-change: transform;
+    z-index: -1;
+}
+
+.home-intro-container div {
+    margin: 0;
+    padding: 0;
+    color: #012970;
+    font-weight: 700;
+    font-size: 3em;
+    line-height: 1.2;
+    width: 100%;
+}
+
+.home-intro-container div p {
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    transition: all .10s;
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .home-container {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        height: auto !important;
+    }
+
+    .home-intro-container {
+        width: 100% !important;
+        margin: 50px auto !important;
+        padding: 0 20px !important;
+        /* display: flex;
+        flex-direction: column;
+        align-items: center; */
+    }
+
+    .home-intro-container div {
+        line-height: 1;
+        font-size: 2em;
+        /* display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center; */
+    }
+
+}
+
+@media only screen and (min-width: 750px) and (max-width: 1200px) {
+
+    .home-intro-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home-intro-container div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+}

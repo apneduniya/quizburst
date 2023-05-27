@@ -1,0 +1,12 @@
+.dashboard-container::before {
+    content: ' ';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #f8f8f8;
+    background: url(https://www.django-rest-framework.org/img/grid.png) repeat-x;
+    will-change: transform;
+    z-index: -1;
+}
