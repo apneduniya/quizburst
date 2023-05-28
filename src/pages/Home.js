@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Tilt_Neon, Varela_Round } from "next/font/google";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useUser } from '@auth0/nextjs-auth0/client';
+import { useRouter } from 'next/router';
 
 
 const varelaRound = Varela_Round({
@@ -45,8 +47,16 @@ const childVariants = {
     }
 };
 
+const Router = () => {
+    const router = useRouter();
+  
+    return router;
+  }
+
 const Home = () => {
     const [isMobile, setIsMobile] = useState(false);
+
+    const { user, error, isLoading } = useUser();
 
     useEffect(() => {
         const mediaQuery = window.matchMedia('(max-width: 1200px)');
@@ -55,7 +65,15 @@ const Home = () => {
         // const listener = () => setIsMobile(mediaQuery.matches);
 
     }, []);
+    if (isLoading) return <div>Loading...</div>;
+    if (error) return <div>{error.message}</div>
 
+    if (user) {
+
+        const router = Router();
+
+        router.push("/dashboard");
+    }
     return (
         <>
             <div
@@ -91,7 +109,7 @@ const Home = () => {
                         transition={{ duration: 2, type: "spring" }}
                     >
                         Where Learning Meets Fun!</motion.p>
-                    <Link href="#features" scroll={false} style={{ margin: 0, padding: 0, textDecoration: "none" }} >
+                    <a href="https://discord.com/api/oauth2/authorize?client_id=1112272330798923847&permissions=8&scope=bot" target="_blank" style={{ margin: 0, padding: 0, textDecoration: "none" }} >
                         <motion.button
                             className={tiltNeon.className}
                             style={{ color: "#ffffff", margin: 0, marginTop: 34, padding: "12px 44px", fontSize: "1.1em", backgroundColor: "#4154F1", border: "0 solid transparent", cursor: "pointer", borderRadius: 10, boxShadow: "0px 5px 30px rgba(65, 84, 241, 0.4)", userSelect: "none" }}
@@ -102,9 +120,9 @@ const Home = () => {
                             whileHover={{ y: -10, boxShadow: "0 7px 32px rgba(36, 56, 237, 0.4)" }}
                             whileTap={{ scale: .88 }}
                         >
-                            Ready to rock 😊?
+                            QuizBurst Bot 😊
                         </motion.button>
-                    </Link>
+                    </a>
                 </div>
 
                 {isMobile ? (
