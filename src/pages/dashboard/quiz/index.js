@@ -12,12 +12,28 @@ import { useUser } from '@auth0/nextjs-auth0/client';
 const Form = () => {
   const form = useForm({
     initialValues: {
-      subject: '',
-      grade: '',
+      1: '',
+      2: '',
+      3: '',
+      4: '',
+      5: '',
+      6: '',
+      7: '',
+      8: '',
+      9: '',
+      10: '',
     },
     validate: {
-      subject: (value) => (value.length < 2 ? 'Invalid subject' : null),
-      grade: (value) => (value.length < 2 ? 'Invalid grade' : null),
+      1: (value) => (value.length < 2 ? 'Invalid answer' : null),
+      2: (value) => (value.length < 2 ? 'Invalid answer' : null),
+      3: (value) => (value.length < 2 ? 'Invalid answer' : null),
+      4: (value) => (value.length < 2 ? 'Invalid answer' : null),
+      5: (value) => (value.length < 2 ? 'Invalid answer' : null),
+      6: (value) => (value.length < 2 ? 'Invalid answer' : null),
+      7: (value) => (value.length < 2 ? 'Invalid answer' : null),
+      8: (value) => (value.length < 2 ? 'Invalid answer' : null),
+      9: (value) => (value.length < 2 ? 'Invalid answer' : null),
+      10: (value) => (value.length < 2 ? 'Invalid answer' : null),
     },
   });
 
@@ -75,16 +91,16 @@ export default function Quiz() {
           style={{ margin: "160px 0", padding: "0 20px", position: "relative", height: "auto", width: "100%", display: "flex", flexDirection: "column", justifyContent: "space-evenly", alignItems: "" }}
         >
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            <TextInput label="The sum of the interior angles of a triangle is always 180 degrees. (True/False) " required max={50} miw={280} {...form.getInputProps('subject')} />
-            <TextInput label="The square root of 16 is 4. (True/False)  " required max={50} miw={280} {...form.getInputProps('grade')} />
-            <TextInput label="A linear equation has a degree of 2. (True/False)  " required max={50} miw={280} {...form.getInputProps('grade')} />
-            <TextInput label="The equation x^2 + 3x + 2 = 0 has two real solutions. (True/False)  " required max={50} miw={280} {...form.getInputProps('grade')} />
-            <TextInput label="The value of π (pi) is an irrational number. (True/False)  " required max={50} miw={280} {...form.getInputProps('grade')} />
-            <TextInput label="A parallelogram has opposite sides that are congruent. (True/False)  " required max={50} miw={280} {...form.getInputProps('grade')} />
-            <TextInput label="The absolute value of any real number is always positive. (True/False)  " required max={50} miw={280} {...form.getInputProps('grade')} />
-            <TextInput label="The decimal representation of 1/4 is 0.25. (True/False)  " required max={50} miw={280} {...form.getInputProps('grade')} />
-            <TextInput label="The formula for the area of a circle is A = πr^2. (True/False)  " required max={50} miw={280} {...form.getInputProps('grade')} />
-            <TextInput label="A right triangle can have two equal sides. (True/False)  " required max={50} miw={280} {...form.getInputProps('grade')} />
+            <TextInput label="The sum of the interior angles of a triangle is always 180 degrees. (True/False) " required max={50} miw={280} {...form.getInputProps('1')} />
+            <TextInput label="The square root of 16 is 4. (True/False)  " required max={50} miw={280} {...form.getInputProps('2')} />
+            <TextInput label="A linear equation has a degree of 2. (True/False)  " required max={50} miw={280} {...form.getInputProps('3')} />
+            <TextInput label="The equation x^2 + 3x + 2 = 0 has two real solutions. (True/False)  " required max={50} miw={280} {...form.getInputProps('4')} />
+            <TextInput label="The value of π (pi) is an irrational number. (True/False)  " required max={50} miw={280} {...form.getInputProps('5')} />
+            <TextInput label="A parallelogram has opposite sides that are congruent. (True/False)  " required max={50} miw={280} {...form.getInputProps('6')} />
+            <TextInput label="The absolute value of any real number is always positive. (True/False)  " required max={50} miw={280} {...form.getInputProps('7')} />
+            <TextInput label="The decimal representation of 1/4 is 0.25. (True/False)  " required max={50} miw={280} {...form.getInputProps('8')} />
+            <TextInput label="The formula for the area of a circle is A = πr^2. (True/False)  " required max={50} miw={280} {...form.getInputProps('9')} />
+            <TextInput label="A right triangle can have two equal sides. (True/False)  " required max={50} miw={280} {...form.getInputProps('10')} />
             <Button type="submit" style={{ marginTop: "20px", padding: "8px 32px" }} >Submit</Button>
           </form>
         </div>
